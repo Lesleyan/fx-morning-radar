@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FX 晨间雷达</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="FX 晨间雷达首页"><span>FX</span> 晨间雷达</a>
+      <p>把昨夜价格、预期变化与风险事件放在同一张晨报里</p>
+      <button class="mode-button" id="themeToggle" type="button" aria-label="切换颜色模式">◐</button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="pageTitle">
+        <div>
+          <p class="eyebrow">MORNING FX BRIEF · 模拟版</p>
+          <h1 id="pageTitle">先看变化，再看方向。</h1>
+          <p class="intro">面向 USD/CAD、EUR/USD、USD/JPY 与 GBP/USD 的晨间播报模板。行情与新闻为可替换的演示数据；交易前请以可靠实时数据源核验。</p>
+        </div>
+        <div class="brief-meta">
+          <span>晨报日期</span>
+          <strong id="briefDate">—</strong>
+          <small id="dataStatus">示例数据 · 等待人工核验</small>
+        </div>
+      </section>
+
+      <section class="alert-strip" id="riskAlert" aria-live="polite"></section>
+
+      <section class="section-heading">
+        <div>
+          <p class="eyebrow">01 · OVERNIGHT TAPE</p>
+          <h2>昨夜收盘与今晨开盘</h2>
+        </div>
+        <p>点差、流动性与周末跳空风险需另行核对。</p>
+      </section>
+      <section class="quote-grid" id="quoteGrid" aria-label="外汇报价"></section>
+
+      <section class="dashboard-grid">
+        <article class="panel macro-panel">
+          <div class="panel-title">
+            <div>
+              <p class="eyebrow">02 · MACRO PULSE</p>
+              <h2>宏观因子温度计</h2>
+            </div>
+            <span class="tag">相对强弱</span>
+          </div>
+          <div class="macro-list" id="macroList"></div>
+          <p class="method-note">方法提示：把“数据水平”和“预期差”分开记录。方向仅用于提出假设，不构成交易指令。</p>
+        </article>
+
+        <article class="panel score-panel">
+          <div class="panel-title">
+            <div>
+              <p class="eyebrow">03 · USD/CAD VIEW</p>
+              <h2>美加相对强弱</h2>
+            </div>
+            <span class="score" id="scoreBadge">—</span>
+          </div>
+          <div class="score-summary" id="scoreSummary"></div>
+          <div class="levels" id="levels"></div>
+          <p class="disclaimer">仅作课程模拟与研究记录，不构成投资建议。</p>
+        </article>
+      </section>
+
+      <section class="section-heading news-heading">
+        <div>
+          <p class="eyebrow">04 · NEWS &amp; EVENTS</p>
+          <h2>影响因子的财经新闻</h2>
+        </div>
+        <div class="filter-group" aria-label="新闻筛选">
+          <button class="filter active" data-filter="all" type="button">全部</button>
+          <button class="filter" data-filter="央行" type="button">央行</button>
+          <button class="filter" data-filter="增长" type="button">增长</button>
+          <button class="filter" data-filter="商品" type="button">商品</button>
+          <button class="filter" data-filter="风险" type="button">风险</button>
+        </div>
+      </section>
+      <section class="news-list" id="newsList" aria-live="polite"></section>
+
+      <section class="workflow">
+        <div>
+          <p class="eyebrow">05 · AI WORKFLOW</p>
+          <h2>可写进 AI 附加报告的使用链路</h2>
+        </div>
+        <ol>
+          <li><strong>收集：</strong>录入昨收、今开、重要数据实际值与预期值，并保留原始链接或截图。</li>
+          <li><strong>整理：</strong>让 AI 按“利率预期、增长、通胀、商品、风险情绪”归类，标注影响方向和不确定性。</li>
+          <li><strong>独立决策：</strong>你自行确认数据、判断是否已被定价，写下仓位、止损和不交易条件。</li>
+          <li><strong>复盘：</strong>保存本页截图、AI 对话节选和实际结果，比较 AI 梳理与最终决策的差异。</li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      <span>FX MORNING RADAR · 课程模拟工具</span>
+      <span>数据状态：<b id="footerStatus">演示数据</b></span>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
